@@ -4,7 +4,7 @@ const BCrypt = require("bcrypt");
 const app = express();
 
 app.get("/bcrypt", async (req, res) => {
-  const hash = await BCrypt.hash("HasThisPassword", 8);
+  const hash = await BCrypt.hash("HashThisPassword", 8);
   res.send(hash);
 });
 
