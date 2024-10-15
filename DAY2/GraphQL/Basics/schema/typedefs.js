@@ -2,6 +2,7 @@ export const typeDefs = `#graphql
 type Query{
     hello:String
     courses:[Course]
+    course(id:ID!):Course
 }
 
 type Course{
