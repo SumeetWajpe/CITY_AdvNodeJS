@@ -85,6 +85,9 @@ export const resolvers = {
     trainer: (_, args) => trainerList.find(trainer => trainer.id == args.id),
   },
   Course: {
-    trainer: () => trainerList.find(t => t.id == 1),
+    trainer: parent => {
+      console.log(parent);
+      return trainerList.find(t => t.id == parent.trainerId);
+    },
   },
 };
