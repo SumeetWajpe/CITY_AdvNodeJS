@@ -90,4 +90,22 @@ export const resolvers = {
       return trainerList.find(t => t.id == parent.trainerId);
     },
   },
+  Mutation: {
+    createTrainer: (_, { id, name, isMCT, followers, avatarUrl }) => {
+      let newTrainer = { id, name, isMCT, followers, avatarUrl };
+      trainerList.push(newTrainer);
+      return newTrainer;
+    },
+    deleteTrainer: (_, { id }) => {
+      let theIndex = trainerList.findIndex(t => t.id == id);
+
+      let deletedTrainerArr = trainerList.splice(theIndex, 1);
+      return deletedTrainerArr[0];
+    },
+    createCourse: (_, { newcourse }) => {
+      console.log(newcourse);
+      listofcourses.push(newcourse);
+      return newcourse;
+    },
+  },
 };
